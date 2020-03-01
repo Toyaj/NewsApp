@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var ib_tblView: UITableView!
     let mdlView: HomeModelView = HomeModelView()
     let networkManager: NetworkManager = NetworkManager()
-    let imageCache = NSCache<NSString, UIImage>()
     let progressHUD = ProgressHud(text: "Processing...")
     
     override func viewDidLoad() {
@@ -41,24 +40,15 @@ class HomeViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
             }
+        } else {
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title = "NY Times Most Popular"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.title = ""
-    }
-    
-    override func viewWillLayoutSubviews() {
-        
-        if !Reachability.isConnectedToNetwork() {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
     }
 }

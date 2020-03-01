@@ -18,7 +18,6 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
         cell.mdlView.model = mdlView.getArticleDetail(item: indexPath.row)
-        
         cell.prepareForCell()
         return cell
     }

@@ -30,11 +30,11 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func prepareForCell() {
-        ib_TittleLabel.text = mdlView.getTitleOfArticle()
-        ib_DateLabel.text = mdlView.getPublishDate()
-        ib_SectionLabel.text = mdlView.getSectionName()
-        ib_SubSectionLabel.text = mdlView.getSubSectionName()
-        let imgURl = mdlView.getThumbnailImageURL()
+        ib_TittleLabel.text = mdlView.title
+        ib_DateLabel.text = mdlView.publishDate
+        ib_SectionLabel.text = mdlView.sectionName
+        ib_SubSectionLabel.text = mdlView.subSectionName
+        let imgURl = mdlView.thumnailUrl
         if imgURl != nil || imgURl != "" {
             self.setImage(url: imgURl ?? "")
         }

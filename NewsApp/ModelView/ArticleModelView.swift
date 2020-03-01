@@ -9,45 +9,63 @@
 import Foundation
 
 class ArticleModelView {
+    
     var model: ArcticleDetails?
     
+    var title: String {
+        getTitleOfArticle()
+    }
+    
+    var publishDate: String {
+        getPublishDate()
+    }
+    
+    var sectionName: String {
+        getSectionName()
+    }
+
+    var subSectionName: String {
+        getSubSectionName()
+    }
+    
+    var thumnailUrl: String? {
+        getThumbnailImageURL()
+    }
+    
+    var imageURl: String? {
+        getImageURL()
+    }
+    
+    var description: String {
+        getDescriptionOFArticle()
+    }
+    
     func getTitleOfArticle() -> String {
-        return model?.title ?? ""
+        let title = model?.title ?? ""
+        return title
     }
-    
-    func getUpdatedArticleDate() -> String {
-        return model?.updated ?? ""
-    }
-    
+ 
     func getPublishDate() -> String {
-        return model?.publishedDate ?? ""
+        let publishDate = model?.publishedDate ?? ""
+        return publishDate
     }
     
     func getSectionName() -> String {
-        guard  model?.section != "" else {
-            return "No Data"
-        }
-        return model!.section
+        let sectionName = model?.section ?? ""
+        return sectionName
     }
     
     func getSubSectionName() -> String {
-        guard  model?.subsection != "" else {
-            return "No Data"
-        }
-        return model!.subsection
+        let subSectionName = model?.subsection ?? ""
+        return  subSectionName
     }
     
     func getThumbnailImageURL() -> String? {
-        guard model?.media.count ?? 0 > 0 else {
-            return nil
-        }
-        guard let url = model?.media[0].mediaMetadata[0].url else {
-            return nil
-        }
-        return  url
+        return  model?.media.count ?? 0 > 0 ? model?.media[0].mediaMetadata[0].url ?? nil : nil
     }
     
     func getImageURL() -> String? {
+        
         guard model?.media.count ?? 0 > 0 else {
             return nil
         }

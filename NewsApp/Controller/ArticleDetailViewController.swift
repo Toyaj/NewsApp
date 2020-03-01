@@ -11,6 +11,7 @@ import UIKit
 class ArticleDetailViewController: UIViewController {
     
     let mdlView: ArticleModelView = ArticleModelView()
+  
     @IBOutlet weak var ib_ImageView: UIImageView!
     @IBOutlet weak var ib_TittleLabel: UILabel!
     @IBOutlet weak var ib_SectionSubSectionLabel: UILabel!
@@ -27,13 +28,13 @@ class ArticleDetailViewController: UIViewController {
 extension ArticleDetailViewController {
     
     func updateUI() {
-        ib_TittleLabel.text = mdlView.getTitleOfArticle()
-        ib_SectionSubSectionLabel.text = "\(mdlView.getSectionName()), \(mdlView.getSubSectionName())"
-        ib_PublishDateLabel.text = mdlView.getPublishDate()
-        ib_ArticleDescLabel.text = mdlView.getDescriptionOFArticle()
-        let imgURl = mdlView.getImageURL()
-        if imgURl != nil {
-            self.setImage(url: imgURl!)
+        ib_TittleLabel.text = mdlView.title
+        ib_SectionSubSectionLabel.text = "\(mdlView.sectionName), \(mdlView.subSectionName)"
+        ib_PublishDateLabel.text = mdlView.publishDate
+        ib_ArticleDescLabel.text = mdlView.description
+        let imgURl = mdlView.imageURl
+        if imgURl != nil || imgURl != "" {
+            self.setImage(url: imgURl ?? "")
         }
     }
     
