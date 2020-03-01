@@ -81,6 +81,12 @@ class HomeViewControllerTest: XCTestCase {
         }
         cell.mdlView.model = mdlView.getArticleDetail(item: 0)
         let arcticleDetails: ArcticleDetails = (mdlView.model?[value])!
+        cell.setSelected(true, animated: true)
         XCTAssertEqual(cell.mdlView.model?.assetID, arcticleDetails.assetID)
+    }
+    
+    func testDidSelectRowAtIndex() {
+        
+        homeViewCntr.ib_tblView.delegate?.tableView?(homeViewCntr.ib_tblView, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
 }
