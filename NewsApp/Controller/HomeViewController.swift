@@ -22,8 +22,10 @@ class HomeViewController: UIViewController {
         ib_tblView.tableFooterView = UIView()
         self.view.addSubview(progressHUD)
         getArticles()
+        
     }
     
+    // MARK: - APICall
     func getArticles() {
         if Reachability.isConnectedToNetwork() {
             progressHUD.show()
@@ -45,10 +47,5 @@ class HomeViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.title = "NY Times Most Popular"
     }
 }

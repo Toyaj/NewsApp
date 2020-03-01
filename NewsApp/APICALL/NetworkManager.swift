@@ -9,7 +9,7 @@
 import Foundation
 
 class NetworkManager {
-    
+    // MARK: - API Call 
     func getNYArticles(onSuccess: @escaping ([ArcticleDetails]) -> (), onFailure: @escaping () -> ()) {
         
         let articleUrl = "\(ServiceApi.url)\(Bundle.main.object(forInfoDictionaryKey: "NYTimesAppKey") ?? "")"

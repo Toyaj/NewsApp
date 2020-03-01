@@ -26,7 +26,7 @@ class ArticleDetailViewController: UIViewController {
 }
 
 extension ArticleDetailViewController {
-    
+    // MARK: - Update User Interface
     func updateUI() {
         ib_TittleLabel.text = mdlView.title
         ib_SectionSubSectionLabel.text = "\(mdlView.sectionName), \(mdlView.subSectionName)"
@@ -38,6 +38,7 @@ extension ArticleDetailViewController {
         }
     }
     
+    // MARK: - set Image
     func setImage(url: String) {
         ib_ImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"), options: [], completed: nil)
     }

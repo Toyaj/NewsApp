@@ -64,6 +64,8 @@ class ArticleModelView {
         return  model?.media.count ?? 0 > 0 ? model?.media[0].mediaMetadata[0].url ?? nil : nil
     }
     
+    // MARK: - Arcticle Detail Screen Methods
+    
     func getImageURL() -> String? {
         
         guard model?.media.count ?? 0 > 0 else {

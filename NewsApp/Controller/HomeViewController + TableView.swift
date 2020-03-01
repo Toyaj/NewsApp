@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension HomeViewController: UITableViewDataSource {
-    
+     // MARK: - UITableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mdlView.totalArticleCount
     }
@@ -25,6 +25,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     
+    // MARK: - UITableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let articleDetailCnt: ArticleDetailViewController = (self.storyboard?.instantiateViewController(withIdentifier: "ArticleDetailViewController") as! ArticleDetailViewController)
         articleDetailCnt.mdlView.model = mdlView.getArticleDetail(item: indexPath.row)

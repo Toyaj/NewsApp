@@ -29,6 +29,8 @@ class ArticleTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // MARK: - Cell UX setup
+    
     func prepareForCell() {
         ib_TittleLabel.text = mdlView.title
         ib_DateLabel.text = mdlView.publishDate
@@ -40,6 +42,7 @@ class ArticleTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Set thumbnail Image
     func setImage(url: String) {
         ib_ThumImgView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"), options: [], completed: nil)
     }

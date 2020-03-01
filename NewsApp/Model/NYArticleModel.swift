@@ -16,7 +16,7 @@ struct NYArticleModel: Codable {
     }
 }
 
-// MARK: - Result
+// MARK: - ArcticleDetails
 struct ArcticleDetails: Codable {
     let assetID: Int
     let publishedDate, section, subsection: String
