@@ -83,7 +83,8 @@ class ArticleModelView {
     }
     
     func getDescriptionOFArticle() -> String {
-        return model?.abstract ?? "Description not available"
+        let description = model?.abstract ?? ""
+        return description
     }
     
 }
